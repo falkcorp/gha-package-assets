@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # file: src/package_assets.py
-# version: 1.0.0
+# version: 1.1.0
 # guid: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
 
 """Package release artifacts and generate checksums"""
@@ -55,6 +55,9 @@ def main():
     # Find all artifacts
     for artifact in sorted(artifacts_dir.glob("**/*")):
         if artifact.is_file():
+            if artifact.stat().st_size == 0:
+                print(f"⚠️ Skipping empty file: {artifact.relative_to(artifacts_dir)}")
+                continue
             rel_path = artifact.relative_to(artifacts_dir)
             sha256 = compute_sha256(artifact)
 
