@@ -18,7 +18,7 @@ optional dockerized execution.
 
 - name: Package assets
   id: package
-  uses: jdfalk/package-assets-action@v1
+  uses: falkcorp/gha-package-assets@v1
   with:
     artifacts-dir: dist
 
@@ -36,20 +36,20 @@ optional dockerized execution.
 ### Force Docker Execution
 
 ```yaml
-- uses: jdfalk/package-assets-action@v1
+- uses: falkcorp/gha-package-assets@v1
   id: package
   with:
     use-docker: true
-    docker-image: ghcr.io/jdfalk/package-assets-action:main
+    docker-image: ghcr.io/falkcorp/gha-package-assets:main
 ```
 
 ## Inputs
 
-| Input           | Description                                                      | Default                                     |
-| --------------- | ---------------------------------------------------------------- | ------------------------------------------- |
-| `artifacts-dir` | Directory containing build artifacts                             | `dist`                                      |
-| `use-docker`    | Run the action inside the published container image              | `false`                                     |
-| `docker-image`  | Docker image reference (tag or digest) when `use-docker` is true | `ghcr.io/jdfalk/package-assets-action:main` |
+| Input           | Description                                                      | Default                                    |
+| --------------- | ---------------------------------------------------------------- | ------------------------------------------ |
+| `artifacts-dir` | Directory containing build artifacts                             | `dist`                                     |
+| `use-docker`    | Run the action inside the published container image              | `false`                                    |
+| `docker-image`  | Docker image reference (tag or digest) when `use-docker` is true | `ghcr.io/falkcorp/gha-package-assets:main` |
 
 ## Outputs
 
@@ -102,7 +102,7 @@ sha256sum -c checksums.txt
 
 - name: Package assets
   id: package
-  uses: jdfalk/package-assets-action@v1
+  uses: falkcorp/gha-package-assets@v1
   with:
     artifacts-dir: dist
 
@@ -135,7 +135,7 @@ sha256sum -c checksums.txt
 
 - name: Package
   id: package
-  uses: jdfalk/package-assets-action@v1
+  uses: falkcorp/gha-package-assets@v1
   with:
     artifacts-dir: dist
 
